@@ -72,3 +72,5 @@ if (isset($_POST['submit'])) {
     </div>
     </form>
 </div>
+</div>
+<?php include 'template/footer.php'; ?>
