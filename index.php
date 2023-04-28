@@ -142,7 +142,6 @@
         <div class="wrapper">
             &copy; 2023. <b>aR.Web.</b> All Rights Reserved.
         </div>
-    </div>
-    
+    </div> 
 </body>
 </html>

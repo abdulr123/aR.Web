@@ -70,6 +70,7 @@
                         <td><?php echo $row['jurusan']; ?></td>
                         <td><?php echo $row['email']; ?></td>
                         <td>
+                        
                             <a href="ubah.php?id=<?php echo $row['id']; ?>" class="btn btn-info">Ubah</a> 
                             <a href="hapus.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Yakin Ingin Menghapus Data');  " class="btn btn-danger">Hapus</a>
                         </td>

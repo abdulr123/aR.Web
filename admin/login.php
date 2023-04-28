@@ -3,7 +3,7 @@
 session_start();
 require 'function.php';
 
-// cek dulu cookie 
+// cek dulu cookie
 if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
     $id = $_COOKIE['id'];
     $key = $_COOKIE['key'];
@@ -18,21 +18,19 @@ if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
     }
 }
 
-
-if (isset($_POST["login"])) {
-
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+if (isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
     $result = mysqli_query($db, "SELECT * FROM user WHERE username = '$username' ");
     // cek username
     if (mysqli_num_rows($result) === 1) {
         // cek pssword
         $row = mysqli_fetch_assoc($result);
-        if (password_verify($password, $row["password"])) {
-            //set session 
-            $_SESSION["login"] = true;
-            $_SESSION["username"] = $username;
+        if (password_verify($password, $row['password'])) {
+            // set session
+            $_SESSION['login'] = true;
+            $_SESSION['username'] = $username;
 
             // cek remember me
             if (isset($_POST['remember'])) {
@@ -44,7 +42,7 @@ if (isset($_POST["login"])) {
                 setcookie('key', hash('sha256', $row['username']), time() + 60);
             }
 
-            header("Location: index.php");
+            header('Location: index.php');
             exit;
         }
     }
@@ -97,9 +95,9 @@ if (isset($_POST["login"])) {
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <?php if (isset($error)) : ?>
+                                    <?php if (isset($error)) { ?>
                                         <p style="color:red;">username / password salah</p>
-                                    <?php endif ?>
+                                    <?php } ?>
                                     <form  action="" method="POST" class="user">
                                         <div class="form-group">
                                             <input type="username" name="username" class="form-control form-control-user"
@@ -126,7 +124,7 @@ if (isset($_POST["login"])) {
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="register.html">Create an Account!</a>
+                                        <a class="small" href="registrasi.php">Create an Account!</a>
                                     </div>
                                 </div>
                             </div>
